@@ -48,9 +48,8 @@ label{
 }
 
 
-@media screen and (max-width: 640px){
+@media screen and (max-width: 1000px){
   .controls{
-    position: fixed;
     margin: 0;
     bottom: 30px;
     left: 0;
