@@ -39,11 +39,25 @@
         <button id="rear" class="btn">SAVE</button>
       </div>
     </main>
-    
+      
     <script src="./assets/js/libs/clmtrackr.min.js"></script>
     <script src="./assets/js/libs/emotion_classifier.js"></script>
     <script src="./assets/js/libs/emotionmodel.js"></script>
     <script src="./assets/models/model_pca_20_svm.js"></script>
     <script src="./assets/js/app.js"></script>
+      
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCYHDCzeJcxZ0aIRKmcwVh9LLXa5_S8Gdg",
+        authDomain: "janus-30ee9.firebaseapp.com",
+        databaseURL: "https://janus-30ee9.firebaseio.com",
+        projectId: "janus-30ee9",
+        storageBucket: "janus-30ee9.appspot.com",
+        messagingSenderId: "1056927702554"
+      };
+      firebase.initializeApp(config);
+    </script>
   </body>
 </html>
