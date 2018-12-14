@@ -103,7 +103,7 @@
 
   function detectFace(){
     ctx.drawImage(video, 0, 0)
-
+    
     if( ctrack.getCurrentPosition() ){
       ctrack.draw(canvas)
     }
@@ -114,15 +114,35 @@
       for(let i = 0; i < er.length; i++){
         if(er[i].value > 0.4){
           console.log(er[i].emotion)
+
+          var today = new Date();
+          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+          var myFirebase = firebase.database().ref();
+          var emo = myFirebase.child("emo");
+          emo.push({
+              "title": er[i].emotion,
+              "time": time,
+              "date": date
+          });
+          
+
           for(let j = 0; j < outputItem.length; j++){
             if(outputItem[j].getAttribute('data-emotion') === er[i].emotion){
               outputItem[j].classList.add('is-show')
+             
+                 
+              document.getElementById("test").innerHTML = er[i].emotion;
             }else{
               outputItem[j].classList.remove('is-show')
             }
           }
+             
         }
+        
       }
+     
     }
   }
 })()
