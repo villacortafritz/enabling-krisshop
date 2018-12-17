@@ -127,7 +127,6 @@
               "date": date
           });
           
-
           for(let j = 0; j < outputItem.length; j++){
             if(outputItem[j].getAttribute('data-emotion') === er[i].emotion){
               outputItem[j].classList.add('is-show')
