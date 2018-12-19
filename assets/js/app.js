@@ -130,9 +130,6 @@
           for(let j = 0; j < outputItem.length; j++){
             if(outputItem[j].getAttribute('data-emotion') === er[i].emotion){
               outputItem[j].classList.add('is-show')
-             
-                 
-              document.getElementById("test").innerHTML = er[i].emotion;
             }else{
               outputItem[j].classList.remove('is-show')
             }
