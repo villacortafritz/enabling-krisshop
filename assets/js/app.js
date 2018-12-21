@@ -68,12 +68,6 @@
   const frontBtn = document.getElementById('front')
   const rearBtn = document.getElementById('rear')
 
-  let ua = navigator.userAgent
-  if(ua.indexOf('iPhone') < 0 && ua.indexOf('Android') < 0 && ua.indexOf('Mobile') < 0 && ua.indexOf('iPad') < 0){
-    frontBtn.disabled = false
-    rearBtn.disabled = false
-  }
-
   stopBtn.addEventListener('click', () => {
     if(isVideoRun){
       stop()
@@ -113,8 +107,6 @@
   function detectFace(){
     ctx.drawImage(video, 0, 0)
 
-    
-    
     if( ctrack.getCurrentPosition() ){
       ctrack.draw(canvas)
     }
