@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>TEKNAY | Demo</title>
+    <title>TIKNAY | Demo</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -61,7 +63,6 @@
                         <button id="front" class="btn">RESET</button>
                         <button id="rear" class="btn">SAVE</button>
                       </div>
-                    
 
                   <h4 id='one'>yes</h4>
                   <h4 id='two'>yes</h4>
@@ -71,6 +72,11 @@
                     </main>
             </div>
           <div class="page" id="p2">
+
+              <div class="container">
+                  <canvas id="myChart"></canvas>
+              </div>
+
           </div>  
           <div class="page" id="p3">
             <section class="icon fa fa-rocket"><span class="title">Rocket</span></section>
@@ -109,8 +115,9 @@
     <script src="./assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    
     <script>
-      
       var config = {
         apiKey: "AIzaSyCYHDCzeJcxZ0aIRKmcwVh9LLXa5_S8Gdg",
         authDomain: "janus-30ee9.firebaseapp.com",
