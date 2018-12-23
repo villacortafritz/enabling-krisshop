@@ -94,6 +94,15 @@
     }
     var deleter = firebase.database().ref('emo');
       deleter.remove();
+
+      tense =0;
+      neutral =0;
+      confident =0;
+      desperate =0;  
+      document.getElementById("one").innerHTML = 0;
+      document.getElementById("two").innerHTML = 0;
+      document.getElementById("three").innerHTML = 0;
+      document.getElementById("four").innerHTML = 0;
   }, false)
 
   rearBtn.addEventListener('click', () => {
@@ -112,10 +121,10 @@
         datasets:[{
           label:'Population',
           data:[
-            617594,
-            181045,
-            153060,
-            106519,
+            tense,
+            confident,
+            desperate,
+            neutral,
           ],
           //backgroundColor:'green',
           backgroundColor:[
