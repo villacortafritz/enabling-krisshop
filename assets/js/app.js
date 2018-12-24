@@ -107,19 +107,25 @@
 
   rearBtn.addEventListener('click', () => {
     
+    lineCharts();
+    
+  }, false)
+  
+  function lineCharts(){
+
     let myChart = document.getElementById('myChart').getContext('2d');
 
     // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
     Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
+    Chart.defaults.global.defaultFontColor = '#000';
 
     let massPopChart = new Chart(myChart, {
-      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
         labels:['Confidence', 'Tense', 'Desperation', 'Neutral Emotion'],
         datasets:[{
-          label:'Population',
+          label:'Time',
           data:[
             tense,
             confident,
@@ -128,46 +134,49 @@
           ],
           //backgroundColor:'green',
           backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
+            'rgba(0, 255, 64, 0.6)',
+            'rgba(0, 64, 255, 0.6)',
+            'rgba(255, 0, 191, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
           ],
           borderWidth:1,
-          borderColor:'#777',
+          borderColor:'#fff',
           hoverBorderWidth:3,
-          hoverBorderColor:'#000'
+          hoverBorderColor:'#fff'
         }]
       },
       options:{
+       // maintainAspectRatio: true,
+       // responsive: true,
         title:{
           display:true,
           text:'Dominant Emotion for the Interview',
-          fontSize:25
+          fontSize:25,
+          fontColor: '#fff'
         },
         legend:{
           display:true,
-          position:'right',
+          position:'bottom',
           labels:{
-            fontColor:'#000'
+            fontColor:'#fff'
           }
         },
         layout:{
           padding:{
-            left:50,
+            left:0,
             right:0,
             bottom:0,
             top:0
-          }
+          },
         },
+
         tooltips:{
           enabled:true
         }
       }
     });
 
-  }, false)
-  
+  }
   
   function detectFace(){
     ctx.drawImage(video, 0, 0)
