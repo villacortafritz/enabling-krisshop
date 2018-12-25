@@ -7,6 +7,7 @@
   var neutral =0;
   var confident =0;
   var desperate =0;
+  var seconds=0;
 
   let isVideoRun = true
   let isLoadedMetaData = false
@@ -21,6 +22,12 @@
   ec.init(emotionModel)
   let emotionData = ec.getBlank()
   let outputItem = document.querySelectorAll('.output_item')
+
+  function assess(neutral, confident, desperate, tense){
+    var b = [tense, neutral,desperate, confident]
+    var a = sort(a);
+    document.getElementById("five").innerHTML = b[1];
+  }
 
   function start(){
     navigator.mediaDevices.getUserMedia( constraints )
@@ -108,12 +115,278 @@
   rearBtn.addEventListener('click', () => {
     
     lineCharts();
+    lineCharts2();
+    lineCharts3();
+    lineCharts4();
+    pieChart();
     
+    assess();
   }, false)
+
+  function pieChart(){
+    let myChart = document.getElementById('myChart5').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#000';
+
+    let massPopChart = new Chart(myChart, {
+      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Confidence', 'Tense', 'Neutral', 'Desperation'],
+        datasets:[{
+          label:'Time',
+          data:[
+            confident,
+            tense,
+            neutral,
+            desperate
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(0, 255, 64, 0.6)',
+            'rgba(0, 64, 255, 0.6)',
+            'rgba(255, 0, 191, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
+          ],
+          borderWidth:1,
+          borderColor:'#fff',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#fff'
+        }]
+      },
+      options:{
+       // maintainAspectRatio: true,
+       // responsive: true,
+        title:{
+          display:true,
+          text:'Dominant Emotion for the Interview',
+          fontSize:25,
+          fontColor: '#fff'
+        },
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{
+            fontColor:'#fff'
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:0
+          },
+        },
+
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  }
   
   function lineCharts(){
 
     let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#000';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Confidence', 'Time'],
+        datasets:[{
+          label:'Time',
+          data:[
+            confident,
+            tense,
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(0, 255, 64, 0.6)',
+            'rgba(0, 64, 255, 0.6)',
+            'rgba(255, 0, 191, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
+          ],
+          borderWidth:1,
+          borderColor:'#fff',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#fff'
+        }]
+      },
+      options:{
+       // maintainAspectRatio: true,
+       // responsive: true,
+        title:{
+          display:true,
+          text:'Dominant Emotion for the Interview',
+          fontSize:25,
+          fontColor: '#fff'
+        },
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{
+            fontColor:'#fff'
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:0
+          },
+        },
+
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+  }
+  function lineCharts2(){
+
+    let myChart = document.getElementById('myChart2').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#000';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Confidence', 'Tense', 'Desperation', 'Neutral Emotion'],
+        datasets:[{
+          label:'Time',
+          data:[
+            tense,
+            confident,
+            desperate,
+            neutral,
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(0, 255, 64, 0.6)',
+            'rgba(0, 64, 255, 0.6)',
+            'rgba(255, 0, 191, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
+          ],
+          borderWidth:1,
+          borderColor:'#fff',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#fff'
+        }]
+      },
+      options:{
+       // maintainAspectRatio: true,
+       // responsive: true,
+        title:{
+          display:true,
+          text:'Dominant Emotion for the Interview',
+          fontSize:25,
+          fontColor: '#fff'
+        },
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{
+            fontColor:'#fff'
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:0
+          },
+        },
+
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+  }
+  function lineCharts3(){
+
+    let myChart = document.getElementById('myChart3').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#000';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Confidence', 'Tense', 'Desperation', 'Neutral Emotion'],
+        datasets:[{
+          label:'Time',
+          data:[
+            tense,
+            confident,
+            desperate,
+            neutral,
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(0, 255, 64, 0.6)',
+            'rgba(0, 64, 255, 0.6)',
+            'rgba(255, 0, 191, 0.6)',
+            'rgba(0, 255, 255, 0.6)',
+          ],
+          borderWidth:1,
+          borderColor:'#fff',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#fff'
+        }]
+      },
+      options:{
+       // maintainAspectRatio: true,
+       // responsive: true,
+        title:{
+          display:true,
+          text:'Dominant Emotion for the Interview',
+          fontSize:25,
+          fontColor: '#fff'
+        },
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{
+            fontColor:'#fff'
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:0
+          },
+        },
+
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+  }
+  function lineCharts4(){
+
+    let myChart = document.getElementById('myChart4').getContext('2d');
 
     // Global Options
     Chart.defaults.global.defaultFontFamily = 'Roboto';
