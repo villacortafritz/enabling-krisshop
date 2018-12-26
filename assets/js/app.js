@@ -7,7 +7,6 @@
   var neutral =0;
   var confident =0;
   var desperate =0;
-  var seconds=0;
 
   let isVideoRun = true
   let isLoadedMetaData = false
@@ -24,9 +23,15 @@
   let outputItem = document.querySelectorAll('.output_item')
 
   function assess(neutral, confident, desperate, tense){
-    var b = [tense, neutral,desperate, confident]
-    var a = sort(a);
-    document.getElementById("five").innerHTML = b[1];
+    console.log(neutral);
+    console.log(confident);
+    console.log(desperate);
+    console.log(tense);
+    var array = [{key: 'Confident', value:confident}, {key:'Tense', value:tense}, {key:'Desperate', value:desperate}, {key:'Neutral', value:neutral}];
+    array.sort(function(obj1, obj2) {
+      return obj1.value - obj2.value;
+   });
+    document.getElementById("five").innerHTML = array[3].key;
   }
 
   function start(){
@@ -92,6 +97,7 @@
       stopBtn.textContent = 'STOP'
     }
     isVideoRun = !isVideoRun
+    
   }, false)
 
   frontBtn.addEventListener('click', () => {
@@ -101,7 +107,7 @@
     }
     var deleter = firebase.database().ref('emo');
       deleter.remove();
-
+ 
       tense =0;
       neutral =0;
       confident =0;
@@ -120,7 +126,8 @@
     lineCharts4();
     pieChart();
     
-    assess();
+    assess(neutral, confident, desperate, tense);
+    
   }, false)
 
   function pieChart(){
@@ -200,12 +207,14 @@
     let massPopChart = new Chart(myChart, {
       type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['Confidence', 'Time'],
+        labels:['Confidence', 'Tense', 'Neutral', 'Desperation'],
         datasets:[{
           label:'Time',
           data:[
             confident,
             tense,
+            neutral,
+            desperate
           ],
           //backgroundColor:'green',
           backgroundColor:[
